@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+	<title>My Contacts</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="center-align">My Contacts</h1>
+		<input id="filterName" type="text" placeholder="Search name..." />
+		<ul id="names" class="collection with-header">
+			<li class="collection-header">
+				<h5>A</h5>
+			</li>
+			<li class="collection-item">
+				<a href="#">Abe</a>
+			</li>
+			<li class="collection-item">
+				<a href="#">Abraham</a>
+			<li>
+			<li class="collection-item">
+				<a href="#">Adan</a>
+			<li>
+			<li class="collection-header">
+				<h5>B</h5>
+			</li>
+			<li class="collection-item">
+				<a href="#">Bill</a>
+			</li>
+			<li class="collection-item">
+				<a href="#">Billy</a>
+			<li>
+			<li class="collection-item">
+				<a href="#">Bob</a>
+			<li>
+			<li class="collection-item">
+				<a href="#">Brian</a>
+			<li>
+			<li class="collection-header">
+				<h5>C</h5>
+			</li>
+			<li class="collection-item">
+				<a href="#">Cassi</a>
+			</li>
+			<li class="collection-item">
+				<a href="#">Carol</a>
+			<li>
+			<li class="collection-item">
+				<a href="#">Caroline</a>
+			<li>
+			<li class="collection-item">
+				<a href="#">Canadian Girl</a>
+			<li>
+		</ul>
+	</div>
+	<script>
+		let filterName = document.getElementById('filterName');
+		filterName.addEventListener('keyup', filterNames);
+
+		function filterNames(){
+			let filterValue = document.getElementById('filterName').value.toUpperCase();
+
+			let lis = document.querySelectorAll('li.collection-item');
+
+			lis.forEach(function(li){
+				let a = li.getElementsByTagName('a')[0];
+
+				if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+					li.style.display = '';		
+				}else{
+					li.style.display = 'none';
+				}
+			});
+		}
+	</script>
+</body>
+</html>
